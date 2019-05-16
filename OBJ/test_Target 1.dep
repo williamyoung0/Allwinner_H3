@@ -1,0 +1,18 @@
+Dependencies for Project 'test', Target 'Target 1': (DO NOT MODIFY !)
+F (.\main.c)(0x5AD944A4)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\HARDWARE\TIMER -I ..\SYSTEM-I.\RTE\_Target_1-ID:\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F407xx-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+I (..\HARDWARE\TIMER\timer.h)(0x5AD6BC63)
+I (..\SYSTEM\sys.h)(0x5A3A0D2A)
+I (..\SYSTEM\stm32f4.h)(0x5AD00365)
+I (..\SYSTEM\delay.h)(0x59EEE017)
+F (.\startup_stm32f40_41xxx.s)(0x542E6B02)(--cpu Cortex-M4.fp -g --apcs=interwork -I.\RTE\_Target_1-ID:\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 525" --pd "STM32F407xx SETA 1"--list .\listings\startup_stm32f40_41xxx.lst --xref -o ..\obj\startup_stm32f40_41xxx.o --depend ..\obj\startup_stm32f40_41xxx.d)
+F (..\HARDWARE\TIMER\TIMER.c)(0x5AD945BF)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\HARDWARE\TIMER -I ..\SYSTEM-I.\RTE\_Target_1-ID:\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F407xx-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
+I (..\HARDWARE\TIMER\timer.h)(0x5AD6BC63)
+I (..\SYSTEM\sys.h)(0x5A3A0D2A)
+I (..\SYSTEM\stm32f4.h)(0x5AD00365)
+F (..\SYSTEM\delay.c)(0x59DC9AE6)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\HARDWARE\TIMER -I ..\SYSTEM-I.\RTE\_Target_1-ID:\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F407xx-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
+I (..\SYSTEM\delay.h)(0x59EEE017)
+I (..\SYSTEM\sys.h)(0x5A3A0D2A)
+I (..\SYSTEM\stm32f4.h)(0x5AD00365)
+F (..\SYSTEM\sys.c)(0x5A3A0D2A)(--c99 --gnu -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\HARDWARE\TIMER -I ..\SYSTEM-I.\RTE\_Target_1-ID:\MDK5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F407xx-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
+I (..\SYSTEM\sys.h)(0x5A3A0D2A)
+I (..\SYSTEM\stm32f4.h)(0x5AD00365)
