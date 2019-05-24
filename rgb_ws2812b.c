@@ -28,10 +28,22 @@ void Set_RGB_Colour(uint8_t red, uint8_t green, uint8_t blue)
 		if((rgb_value<<i)&0x800000)
 		{
 			RGB_buffer[i+45] = 61;
+			RGB_buffer[i+69] = 61;
+			RGB_buffer[i+93] = 61;
+			RGB_buffer[i+117] = 61;
+			RGB_buffer[i+141] = 61;
+			RGB_buffer[i+165] = 61;
+			RGB_buffer[i+213] = 61;
+
 		}
 		else
 		{
-			RGB_buffer[i+45] = 28;
+			RGB_buffer[i+69] = 28;
+			RGB_buffer[i+93] = 28;
+			RGB_buffer[i+117] = 28;
+			RGB_buffer[i+141] = 28;
+			RGB_buffer[i+165] = 28;
+			RGB_buffer[i+213] = 28;
 		}
 	}
 	DMA_Cmd(DMA1_Channel2,ENABLE);
