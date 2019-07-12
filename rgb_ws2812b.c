@@ -1,6 +1,6 @@
 #include "rgb_ws2812b.h"
 
-uint16_t RGB_buffer[237] = {0};
+volatile u16 RGB_buffer[258] = {0};
 
 
 void RGB_WS2812B_GPIO_Config(void)
@@ -51,25 +51,27 @@ void Set_RGB_Colour(uint8_t red, uint8_t green, uint8_t blue)
 
 void RGB_DMA_Transmission(void)
 {
-	DMA_InitTypeDef DMA_InitStructure;
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
-	
+   	DMA_InitTypeDef DMA_InitStructure;
+
+   	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
+
 	DMA_DeInit(DMA1_Channel2);
 	
-	DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)(&TIM3->CCR1);
-	DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)RGB_buffer;
-	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
-	DMA_InitStructure.DMA_BufferSize = sizeof(RGB_buffer);
-	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
-	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;
-	DMA_InitStructure.DMA_MemoryDataSize = DMA_PeripheralDataSize_HalfWord;
-	DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
-	DMA_InitStructure.DMA_Priority = DMA_Priority_High;
-	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
-	DMA_Init(DMA1_Channel2,&DMA_InitStructure);
+	DMA_InitStructure.DMA_PeripheralBaseAddr = (u32)(&TIM3->CCR3);                //外设地址  
+	DMA_InitStructure.DMA_MemoryBaseAddr = (u32)RGB_buffer;                       //存储器地址
+	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;                            //数据方向为存储器到外设
+	DMA_InitStructure.DMA_BufferSize = sizeof(RGB_buffer);                        //单次发送数据个数
+	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;              //外设地址不自增
+	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;                       //内存地址自增
+	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;   //设置外设数据位宽为半字(16位)
+	DMA_InitStructure.DMA_MemoryDataSize = DMA_PeripheralDataSize_HalfWord;       //设置存储器数据位宽为半字(16位)
+	DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;                                 //正常在工作模式，另外一个是循环模式
+	DMA_InitStructure.DMA_Priority = DMA_Priority_High;                           //设置最高优先级 
+	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;                                  //失能存储器到存储器传输
+	DMA_Init(DMA1_Channel2, &DMA_InitStructure);                                  //初始化配置生效
+
 	
-	DMA_Cmd(DMA1_Channel2, ENABLE);
+  	DMA_Cmd(DMA1_Channel2, ENABLE);
 }
 
 void RGB_TIM3OC3_PWM(void)
